@@ -1,11 +1,41 @@
-# Spring PetClinic Sample Application [![Build Status](https://travis-ci.org/spring-projects/spring-petclinic.png?branch=master)](https://travis-ci.org/spring-projects/spring-petclinic/)
+# Spring Boot App Proguard and Stringer Protection
+This fork of the sample Spring-based application (https://github.com/spring-projects/spring-petclinic) with Spring Boot is to demonstrate how to Proguard and Stringer both protection for this kind of applications.
 
-## Understanding the Spring Petclinic application with a few diagrams
-<a href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">See the presentation here</a>
+Stringer can encrypt strings, protect methods code, etc, but it cannot rename classes, packages, fields, etc. For better protection you can obfuscate application by proguard and then obfuscate it by Stringer.
+
+You can find a good guide about protection Spring apps here: https://midgetontoes.com/tips-for-using-proguard-with-spring-framework
+
+## Proguard obfuscation of a Spring Boot app steps:
+
+1. Add com.github.wvengen.proguard-maven-plugin on the *prepare-package* phase of your app with parameter *injar=classes*. It will run proguard before creating jar and repackaging it. Spring Boot plugin repackages all classes to the BOOT-INF/classes folder withing a jar. Proguard does not work with the repackaged classes correctly.
+1. Create a *proguard.conf* in the same project folder like pom.xml
+1. Fill the *proguard.conf* like this example
+1. If Spring annotations @Service, @Component and @Configuration are used to declare beans, make sure a name is assigned to each bean, e.g. @Component("userHelper") or @Service("userService")
+1. Build your app and make sure that your app is working as expected
+
+## Stringer obfuscation of the app
+
+1. Add com.licel.stringer-maven-plugin on the *package* phase of your app
+1. Create a file *stringer.xml* like here
+1. Add a parameter *proguardMapFile* to the stringer.xml file picking to the map file created by proguard on obfuscation process
+
+## Results
+
+### Not obfuscated app
+
+<img width="1042" alt="not_obfuscated-screenshot" src="img/not_obfuscated.png">
+
+### Obfuscated by Proguard only app
+
+<img width="1042" alt="proguard_obfuscated-screenshot" src="img/proguard_obfuscated.png">
+
+### Obfuscated by both Proguard and Stringer app
+
+    <img width="1042" alt="proguard_stringer_obfuscated-screenshot" src="img/proguard_stringer_obfuscated.png">
 
 ## Running petclinic locally
 ```
-	git clone https://github.com/spring-projects/spring-petclinic.git
+	git clone https://github.com/StringerJavaObfuscator/spring-petclinic
 	cd spring-petclinic
 	./mvnw spring-boot:run
 ```

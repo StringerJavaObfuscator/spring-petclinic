@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<stringer-v3>
+    <verbose>true</verbose>
+    <optimize>true</optimize>
+    <proguardMapFile>target/proguard_map.txt</proguardMapFile>
+    <protectionElements>
+        <protectionElement>
+            <paths>
+                <path>BOOT-INF/classes</path>
+            </paths>
+            <stringEncryption/>
+            <hideAccess/>
+            <!--
+            <resourceEncryption>
+                <filters>
+                    <filter>*.sql</filter>
+                    <filter>*.properties</filter>
+                    <filter>*.html</filter>
+                </filters>
+            </resourceEncryption>
+            -->
+        </protectionElement>
+    </protectionElements>
+</stringer-v3>
