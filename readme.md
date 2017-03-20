@@ -31,7 +31,7 @@ You can find a good guide about protection Spring apps here: https://midgetontoe
 
 ### Obfuscated by both Proguard and Stringer app
 
-    <img width="1042" alt="proguard_stringer_obfuscated-screenshot" src="img/proguard_stringer_obfuscated.png">
+<img width="1042" alt="proguard_stringer_obfuscated-screenshot" src="img/proguard_stringer_obfuscated.png">
 
 ## Running petclinic locally
 ```
