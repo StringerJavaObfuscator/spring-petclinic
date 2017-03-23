@@ -38,7 +38,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Michael Isvy
  * @author Dave Syer
  */
-@Controller
+@Controller("VisitController")
 class VisitController {
 
     private final VisitRepository visits;

@@ -37,7 +37,7 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Arjen Poutsma
  * @author Michael Isvy
  */
-@Controller
+@Controller("OwnerController")
 class OwnerController {
 
     private static final String VIEWS_OWNER_CREATE_OR_UPDATE_FORM = "owners/createOrUpdateOwnerForm";

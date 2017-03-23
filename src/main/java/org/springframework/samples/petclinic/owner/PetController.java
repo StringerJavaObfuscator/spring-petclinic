@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Ken Krebs
  * @author Arjen Poutsma
  */
-@Controller
+@Controller("PetController")
 @RequestMapping("/owners/{ownerId}")
 class PetController {
 

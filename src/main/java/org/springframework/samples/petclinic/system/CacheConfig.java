@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Profile;
 /**
  * Cache could be disabled in unit test.
  */
-@org.springframework.context.annotation.Configuration
+@org.springframework.context.annotation.Configuration("CacheConfig")
 @EnableCaching
 @Profile("production")
 class CacheConfig {
